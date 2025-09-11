@@ -1,0 +1,47 @@
+<div>
+  <h1 class="text-2xl font-black mb-8">List buy - Template-driven forms</h1>
+
+  <form #form="ngForm" (ngSubmit)="submitForm(form)" action="" class="flex items-center justify-center gap-12">
+
+    <div>
+      <label class=" flex flex-col" for="">Produto:
+        <input class="border
+          bg-white text-black" type="text" name="inputProduct" #nameProduct="ngModel" [ngModel]="nameProduct.value"
+          required="">
+      </label>
+    </div>
+
+    <div>
+      <label class="flex flex-col" for="">Preço:
+        <input name="inputPrice" #priceProduct="ngModel" [ngModel]="priceProduct.value"
+          class="border bg-white  text-black" type="text">
+      </label>
+    </div>
+
+    <div>
+      <label for="" class="flex flex-col">Produto:
+        <select class="border border-white" name="selectCategory" #seleCategory="ngModel" ngModel id="">
+          @for (item of listCategory(); track $index) {
+          <option class=" text-black" [ngValue]="item">{{item}}</option>
+          }
+        </select>
+      </label>
+
+
+    </div>
+
+    <button class="bg-blue-300 p-2 rounded-2xl">Adicionar</button>
+  </form>
+
+  <section>
+    <ul class="p-4">
+      @for (item of items(); track $index) {
+      <li>
+        <span class="font-semibold">{{ item.product }}</span> -
+        <span>{{ item.price }}</span> -
+        <span>{{ item.category }}</span>
+      </li>
+      }
+    </ul>
+  </section>
+</div>

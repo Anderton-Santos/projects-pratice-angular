@@ -5,10 +5,11 @@ import { Cronometro } from "./pratices/cronometro/cronometro";
 import { Quiz } from "./pratices/quiz/quiz";
 import { QuizTwo } from "./pratices/quiz-two/quiz-two";
 import { Tables } from "./pratices/tables/tables";
+import { ListBuy } from "./pratices/list-buy/list-buy";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, CounterHistory, Cronometro, Quiz, QuizTwo, Tables],
+  imports: [RouterOutlet, CounterHistory, Cronometro, Quiz, QuizTwo, Tables, ListBuy],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
