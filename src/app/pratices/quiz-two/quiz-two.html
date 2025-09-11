@@ -1,0 +1,16 @@
+<div>
+  <h1 class="text-2xl font-bold">Quiz</h1>
+
+  <ng-container *ngIf="!finished ; else fim">
+    <span>{{quiz[count()].quest}}</span>
+
+    <div>
+      <button (click)="QuizRes(true)">Verdadeiro</button>
+      <button (click)="QuizRes(false)">Falso</button>
+    </div>
+  </ng-container>
+
+  <ng-template #fim>
+    <span>Quiz encerrado você acertou {{score()}} de {{quiz.length}} perguntas</span>
+  </ng-template>
+</div>

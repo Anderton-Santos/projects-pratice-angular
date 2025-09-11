@@ -1,0 +1,16 @@
+<h1>Quiz</h1>
+
+<div class="flex flex-col">
+  <ng-container *ngIf="!fineshed; else fim">
+    <span>{{quiz[count()].quest}}</span>
+
+    <div class="flex gap-4">
+      <button #btntrue>Verdadeiro</button>
+      <button #btnfalse>Falso</button>
+    </div>
+  </ng-container>
+
+  <ng-template #fim>
+    <span>Quiz encerrado você acertou {{score()}} de {{quiz.length}} perguntas</span>
+  </ng-template>
+</div>

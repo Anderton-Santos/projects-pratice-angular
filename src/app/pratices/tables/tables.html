@@ -1,0 +1,16 @@
+<section class="flex flex-col gap-12">
+  <h1 class="text-center">Tables</h1>
+
+  <div class="flex items-center justify-center gap-8 font-bold">
+    @for (item of tablesList; track $index; let idx = $index) {
+    <button class="cursor-pointer" (click)="mapBtn(idx)">{{item.label}}</button>
+    }
+  </div>
+
+  <div class="flex items-center justify-center">
+    <span *ngIf="tableIndex() !== null">{{tablesList[tableIndex()!].content}}</span>
+  </div>
+
+
+
+</section>
