@@ -33,13 +33,22 @@
     <button class="bg-blue-300 p-2 rounded-2xl">Adicionar</button>
   </form>
 
-  <section>
+  <section class="flex">
     <ul class="p-4">
-      @for (item of items(); track $index) {
-      <li>
+      @for (item of items(); track $index; let idx = $index;) {
+      <li class="flex gap-4">
         <span class="font-semibold">{{ item.product }}</span> -
         <span>{{ item.price }}</span> -
         <span>{{ item.category }}</span>
+
+
+        <button class="cursor-pointer font-bold bg-blue-200 px-1 rounded-full"
+          (click)="handleEdit(idx, form)">E</button>
+        <button class="cursor-pointer font-bold bg-red-200 px-1 rounded-full"
+          (click)="removeItem(item.product)">X</button>
+
+
+
       </li>
       }
     </ul>
