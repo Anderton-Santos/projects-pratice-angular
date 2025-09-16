@@ -32,23 +32,23 @@
 
   </section>
 
+  @if(listProduct().length == 0){
+
+  <div class="mt-12 w-full flex items-center justify-center">
+    <p class="w-[80%] text-[20px] text-center font-bold">Não foi adicionado items em minha lista</p>
+  </div>
+
+
+  }
+
+  @else {
   <section class="w-full grid grid-cols-4 gap-4 p-4">
-    @if(listProduct().length == 0){
-
-    <div class="bg-amber-100 w-full flex items-center justify-center">
-      <p class="w-[80%] text-[20px] text-center font-bold">Não foi adicionado items em minha lista</p>
-    </div>
-
-
-    }
-
-    @else {
     @for (item of listCategory; track $index; let i = $index;) {
     <ul class="bg-blue-200 text-center text-black font-bold">{{item}}
 
       @for (product of listProduct(); track $index; let i = $index;) {
       @if(product.selectCategory == item){
-      <li class="bg-gray-200 h-[300px]">
+      <li class="bg-gray-200 h-auto mb-4">
         {{product.nameProduct}} - {{product.priceProduct | currency: "BRL"}}
       </li>
       }
@@ -57,9 +57,9 @@
 
     </ul>
     }
-
-
-    }
-
   </section>
+
+  }
+
+
 </section>
