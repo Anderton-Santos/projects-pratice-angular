@@ -1,0 +1,65 @@
+<section class="w-full">
+  <h1 class="text-2xl font-black">Lista de compras</h1>
+
+  <section class="w-full">
+    <form #form="ngForm" (ngSubmit)="submitForm(form)"
+      class=" flex flex-col items-center w-fit p-6 rounded-2xl mx-auto justify-center bg-gray-400" action="">
+
+      <div class="flex flex-col items-center justify-center">
+        <label for="" class="font-bold text-black">Produto:</label>
+        <input class="bg-white text-black" type="text" name="nameProduct" #nameProduct="ngModel"
+          [ngModel]="nameProduct.value">
+      </div>
+
+      <div class="flex flex-col items-center justify-center">
+        <label for="" class="font-bold text-black">Price:</label>
+        <input class="bg-white text-black" type="number" name="priceProduct" #priceProduct="ngModel"
+          [ngModel]="priceProduct.value">
+      </div>
+
+      <div class="flex flex-col items-center justify-center">
+        <label for="" class="font-bold text-black">Categoria:</label>
+        <select class="bg-gray-300 text-black" name="selectCategory" #selectCategory="ngModel" ngModel>
+          @for (item of listCategory; track $index) {
+          <option value={{item}}>{{item}}</option>
+          }
+        </select>
+      </div>
+
+      <button class="bg-blue-400 p-2 rounded-2xl mt-4 font-black">Adicionar</button>
+
+    </form>
+
+  </section>
+
+  <section class="w-full grid grid-cols-4 gap-4 p-4">
+    @if(listProduct().length == 0){
+
+    <div class="bg-amber-100 w-full flex items-center justify-center">
+      <p class="w-[80%] text-[20px] text-center font-bold">Não foi adicionado items em minha lista</p>
+    </div>
+
+
+    }
+
+    @else {
+    @for (item of listCategory; track $index; let i = $index;) {
+    <ul class="bg-blue-200 text-center text-black font-bold">{{item}}
+
+      @for (product of listProduct(); track $index; let i = $index;) {
+      @if(product.selectCategory == item){
+      <li class="bg-gray-200 h-[300px]">
+        {{product.nameProduct}} - {{product.priceProduct | currency: "BRL"}}
+      </li>
+      }
+
+      }
+
+    </ul>
+    }
+
+
+    }
+
+  </section>
+</section>

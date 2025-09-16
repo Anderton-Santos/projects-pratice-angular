@@ -1,56 +1,44 @@
-<div>
-  <h1 class="text-2xl font-black mb-8">List buy - Template-driven forms</h1>
+<section>
 
-  <form #form="ngForm" (ngSubmit)="submitForm(form)" action="" class="flex items-center justify-center gap-12">
-
-    <div>
-      <label class=" flex flex-col" for="">Produto:
-        <input class="border
-          bg-white text-black" type="text" name="inputProduct" #nameProduct="ngModel" [ngModel]="nameProduct.value"
-          required="">
-      </label>
+  <form #form="ngForm" (ngSubmit)="onSubmit(form)" action="" class="flex justify-center items-center gap-12">
+    <div class="flex flex-col">
+      <label for="">Nome:</label>
+      <input class="bg-white text-black" type="text" ngModel name="name" #nameProduct="ngModel">
     </div>
 
-    <div>
-      <label class="flex flex-col" for="">Preço:
-        <input name="inputPrice" #priceProduct="ngModel" [ngModel]="priceProduct.value"
-          class="border bg-white  text-black" type="text">
-      </label>
+    <div class="flex flex-col">
+      <label for="">Preço:</label>
+      <input class="bg-white text-black" type="number" ngModel name="price" #PriceProduct="ngModel">
     </div>
 
-    <div>
-      <label for="" class="flex flex-col">Produto:
-        <select class="border border-white" name="selectCategory" #seleCategory="ngModel" ngModel id="">
-          @for (item of listCategory(); track $index) {
-          <option class=" text-black" [ngValue]="item">{{item}}</option>
-          }
-        </select>
-      </label>
+    <div class="flex flex-col">
+      <label for="">Categoria:</label>
+      <select id="" class="bg-white text-black" ngModel name="category" #CategoryProduct="ngModel">
+        @for (item of optionCategory; track $index) {
+        <option value={{item}}>{{item}}</option>
+        }
 
-
+      </select>
     </div>
 
-    <button class="bg-blue-300 p-2 rounded-2xl">Adicionar</button>
+    <button class="bg-blue-300 px-6 py-1 rounded-2xl font-bold text-gray-200">Adicionar</button>
   </form>
 
-  <section class="flex">
+  <section>
     <ul class="p-4">
-      @for (item of items(); track $index; let idx = $index;) {
-      <li class="flex gap-4">
-        <span class="font-semibold">{{ item.product }}</span> -
-        <span>{{ item.price }}</span> -
-        <span>{{ item.category }}</span>
+      @for (item of list(); track $index; let idx = $index) {
+      <li class="flex gap-4"><span class="text-white">{{item.name}}</span>
+        <span>{{item.price}}</span>
+        <span>{{item.category}}</span>
 
-
-        <button class="cursor-pointer font-bold bg-blue-200 px-1 rounded-full"
-          (click)="handleEdit(idx, form)">E</button>
-        <button class="cursor-pointer font-bold bg-red-200 px-1 rounded-full"
-          (click)="removeItem(item.product)">X</button>
+        <button (click)="handleDelete(idx)" class="cursor-pointer font-bold bg-blue-200 px-1 rounded-full">X</button>
+        <button class="cursor-pointer font-bold bg-red-200 px-1 rounded-full" (click)="handleEdit(idx, form)">E</button>
 
 
 
       </li>
       }
+
     </ul>
   </section>
-</div>
+</section>

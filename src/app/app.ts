@@ -6,10 +6,22 @@ import { Quiz } from "./pratices/quiz/quiz";
 import { QuizTwo } from "./pratices/quiz-two/quiz-two";
 import { Tables } from "./pratices/tables/tables";
 import { ListBuy } from "./pratices/list-buy/list-buy";
+import { SearchUser } from "./pratices/search-user/search-user";
+import { ListBuyTrello } from "./pratices/list-buy-trello/list-buy-trello";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, CounterHistory, Cronometro, Quiz, QuizTwo, Tables, ListBuy],
+  imports: [
+    RouterOutlet,
+    CounterHistory,
+    Cronometro,
+    Quiz,
+    QuizTwo,
+    Tables,
+    ListBuy,
+    SearchUser,
+    ListBuyTrello
+  ],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

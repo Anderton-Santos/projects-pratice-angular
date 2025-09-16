@@ -10,64 +10,61 @@ import { FormsModule, NgForm } from '@angular/forms'
 })
 export class ListBuy {
 
-  items = signal<{ product: string; price: string; category: string }[]>([])
+  list = signal<{ name: string, price: number, category: string }[]>([])
+  isEditing = signal<number | null>(null)
 
-  indexEdit = signal<null | number>(null)
-
-  listCategory = signal<string[]>([
-    "Alimentos",
-    "Limpeza",
-    "Higiene",
-    "Outros"
-  ])
+  optionCategory: string[] = [
+    "Higiene", "Limpeza", "Alimentos", "Outros",]
 
 
 
-  submitForm(form: NgForm) {
-    if (form.valid) {
+  onSubmit(form: NgForm) {
+    if (this.isEditing() !== null) {
+      this.list.update(item => {
+        const copy = [...item]
+        copy[this.isEditing()!] = {
+          name: form.value.name,
+          price: form.value.price,
+          category: form.value.category,
+        }
+        return copy;
+      })
 
-
-      if (this.indexEdit() != null) {
-        this.items.update(prev => {
-          const copy = [...prev]
-          copy[this.indexEdit()!] = {
-            product: form.value.inputProduct,
-            price: form.value.inputPrice,
-            category: form.value.selectCategory
-          }
-          return copy
-        })
-
-        this.indexEdit.set(null)
-      } else {
-        this.items.update((prev) => [
-          ...prev, {
-            product: form.value.inputProduct,
-            price: form.value.inputPrice,
-            category: form.value.selectCategory
-          }
-        ])
-      }
-
-      form.reset()
+      this.isEditing.set(null) // reseta o modo edição
+    } else {
+      this.list.update(prev => [...prev, { ...form.value }])
     }
 
+    form.reset()
   }
 
-  removeItem(item: string) {
-    this.items.update(prev => prev.filter(p => p.product !== item))
+
+  handleDelete(item: number) {
+    this.list().splice(item, 1)
+
   }
 
-  handleEdit(index: number, form: NgForm) {
-    this.indexEdit.set(index)
-
-    const item = this.items()[index]
+  handleEdit(item: number, form: NgForm) {
+    this.isEditing.set(item)
+    const edit = this.list()[item]
     form.setValue({
-      inputProduct: item.product,
-      inputPrice: item.price,
-      selectCategory: item.category
+      name: edit.name,
+      price: edit.price,
+      category: edit.category,
     })
+
+
+
+
+
+
+
+
   }
+
+
+
+
 
 
 }

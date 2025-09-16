@@ -1,4 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
+
+interface array {
+  num: number;
+  mes: string;
+}
 
 @Component({
   selector: 'app-counter-history',
@@ -8,49 +13,51 @@ import { Component } from '@angular/core';
   <h1 class="font-bold text-2xl">Counter History</h1>
 
   <div class="text-2xl flex gap-4 p-4">
-    <button class="cursor-pointer" (click)="increment()">+</button>
-    <button class="cursor-pointer" (click)="decreament()">-</button>
+    <button class="cursor-pointer" (click)="Increament()">+</button>
+    <button class="cursor-pointer" (click)="Decreament()">-</button>
   </div>
 
   <div>
     <ul>
-      @for (item of arra; track $index) {
+      @for (item of array(); track $index) {
         <li>
-          <span>{{item.messa}} {{item.value}}</span>
+          <span>{{item.num}}</span> -
+          <span>{{item.mes}}</span>
         </li>
       }
+    
     </ul>
   </div>
   `,
 })
+
 export class CounterHistory {
 
-  arra: { value: number, messa: string }[] = [{ value: 0, messa: "inicial" }]
-  mess = ""
+  count = signal(0)
+  array = signal<array[]>([])
 
-  handleMessage(text: string) {
-    this.mess = text
-  }
+  message(text: string) {
+    return text
 
-
-
-  get lastCount(): number {
-    return this.arra[this.arra.length - 1].value
 
   }
 
+  Increament() {
+    this.count.update(count => count + 1)
+    this.array.update(array => [...array, { num: this.count(), mes: "Adicionou" }])
+    console.log(this.array())
 
 
-  increment() {
-    this.arra.push({ value: this.lastCount + 1, messa: "Adiciounou" })
-    this.handleMessage(`Você adicounou`)
+
+
   }
 
-  decreament() {
-    this.arra.push({ value: this.lastCount - 1, messa: "Removeu" })
-    this.handleMessage(`Você Removeu`)
-  }
+  Decreament() {
+    this.count.update(i => i - 1)
+    this.array.update(array => [...array, { num: this.count(), mes: "Removeu" }])
+    console.log(this.array())
 
+  }
 
 
 
