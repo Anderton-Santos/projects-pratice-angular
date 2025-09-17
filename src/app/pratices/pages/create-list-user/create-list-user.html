@@ -1,0 +1,65 @@
+<div class="w-full">
+  <section class="flex justify-around w-[50%] mx-auto">
+    <div class="flex gap-4">
+      <p>Cadastrar novo cliente?</p>
+      <button (click)="ButtonIndex()" class="bg-blue-200 text-black rounded-2xl font-black text-[20px] px-1">+</button>
+    </div>
+
+    <div class="flex gap-3">
+      <span>Listar Clientes cadastrados:</span>
+      <button>
+        <a routerLink="/listuser" class="bg-red-300 rounded-2xl"> -></a>
+      </button>
+
+    </div>
+
+  </section>
+
+  @if(buttonView() != null){
+  <section class="w-full flex items-center justify-center mt-4">
+    <form [formGroup]="useForm" action="" (ngSubmit)="onSubmit()"
+      class="bg-gray-300 rounded-2xl w-fit p-6 flex flex-col gap-6 items-center justify-center">
+
+      <div class="flex flex-col items-center justify-center">
+        <label for="" class="text-black font-medium">Nome completo</label>
+        <input id="nameUser" formControlName="nameUser" class="bg-white text-black" type="text" required>
+      </div>
+
+      <div class="flex flex-col items-center justify-center">
+        <label for="" class="text-black font-medium">Telefone</label>
+        <input id="cell" formControlName="cell" class="bg-white text-black" type="number" required>
+      </div>
+
+      <div class="flex flex-col items-center justify-center">
+        <label for="" class="text-black font-medium">Data de nascimento:</label>
+        <input id="dateNascimento" formControlName="dateNascimento" class="bg-white text-black" type="date" required>
+      </div>
+
+      <div class="flex flex-col items-center justify-center">
+        <label for="" class="text-black font-medium">Endereço:</label>
+        <input id="addres" formControlName="addres" class="bg-white text-black" type="text" required>
+      </div>
+
+      <div class="flex flex-col items-center justify-center">
+        <label class="text-black font-medium">Possui filhos:</label>
+        <div class="flex gap-4 items-center">
+          <label class="text-black font-medium">
+            <input formControlName="children" type="radio" value="sim" class="mr-1">
+            Sim
+          </label>
+          <label class="text-black font-medium">
+            <input formControlName="children" type="radio" value="nao" class="mr-1">
+            Não
+          </label>
+        </div>
+      </div>
+
+      <button type="submit" [disabled]="!useForm.valid">Enviar</button>
+    </form>
+  </section>
+
+  }@else {
+
+  }
+
+</div>

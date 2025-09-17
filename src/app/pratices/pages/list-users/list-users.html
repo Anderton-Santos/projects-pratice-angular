@@ -1,0 +1,16 @@
+<p>list-users works!</p>
+<h2>Usuários cadastrados</h2>
+
+<ul>
+  @for (item of userService.newUsers(); track $index) {
+  <li>
+
+    <span>{{item.nameUser}}</span>
+    <span>{{item.addres}}</span>
+    <span>{{item.cell}}</span>
+    <span>{{item.dateNascimento}}</span>
+    <span>{{item.children}}</span>
+
+  </li>
+  }
+</ul>

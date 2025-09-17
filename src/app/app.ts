@@ -8,6 +8,7 @@ import { Tables } from "./pratices/tables/tables";
 import { ListBuy } from "./pratices/list-buy/list-buy";
 import { SearchUser } from "./pratices/search-user/search-user";
 import { ListBuyTrello } from "./pratices/list-buy-trello/list-buy-trello";
+import { CreateListUser } from "./pratices/pages/create-list-user/create-list-user";
 
 @Component({
   selector: 'app-root',
@@ -20,7 +21,8 @@ import { ListBuyTrello } from "./pratices/list-buy-trello/list-buy-trello";
     Tables,
     ListBuy,
     SearchUser,
-    ListBuyTrello
+    ListBuyTrello,
+    CreateListUser
   ],
   templateUrl: './app.html',
   styleUrl: './app.css'
