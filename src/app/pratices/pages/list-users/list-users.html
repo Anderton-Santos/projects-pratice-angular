@@ -1,15 +1,38 @@
-<p>list-users works!</p>
-<h2>Usuários cadastrados</h2>
+<h2 class="text-2xl font-black mb-6">Usuários cadastrados: {{userService.amount()}}</h2>
 
-<ul>
+<ul class="bg-red w-[300px] flex flex-col gap-6 p-4">
   @for (item of userService.newUsers(); track $index) {
-  <li>
+  <li class="bg-white rounded-2xl flex flex-col gap-4 p-2 text-black">
 
-    <span>{{item.nameUser}}</span>
-    <span>{{item.addres}}</span>
-    <span>{{item.cell}}</span>
-    <span>{{item.dateNascimento}}</span>
-    <span>{{item.children}}</span>
+    <div class="flex flex-col">
+      <span class="font-bold">
+        <span class="font-medium">
+          Nome:
+        </span>
+        {{item.nameUser}}
+      </span>
+
+      <span class="font-bold">
+        <span class="font-medium">Endereço:</span>
+        {{item.addres}}
+      </span>
+
+      <span class="font-bold">
+        <span class="font-medium">Telefone:</span>
+        {{item.cell}}
+      </span>
+
+      <span class="font-bold">
+        <span class="font-medium">Data de nascimento:</span>
+        {{item.dateNascimento}}
+      </span>
+
+      <span class="font-bold">
+        <span class="font-medium">Possui filhos:</span>
+        {{item.children}}
+      </span>
+    </div>
+
 
   </li>
   }

@@ -11,3 +11,10 @@ export interface CreateUserProps {
   addres: string;
   children: string;
 }
+
+export interface CartProps {
+  nameProduct: string;
+  priceProduct: number;
+  amount: number
+}
+

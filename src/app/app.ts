@@ -9,6 +9,7 @@ import { ListBuy } from "./pratices/list-buy/list-buy";
 import { SearchUser } from "./pratices/search-user/search-user";
 import { ListBuyTrello } from "./pratices/list-buy-trello/list-buy-trello";
 import { CreateListUser } from "./pratices/pages/create-list-user/create-list-user";
+import { CatEcommerce } from "./pratices/cart/cat-ecommerce/cat-ecommerce";
 
 @Component({
   selector: 'app-root',
@@ -22,7 +23,8 @@ import { CreateListUser } from "./pratices/pages/create-list-user/create-list-us
     ListBuy,
     SearchUser,
     ListBuyTrello,
-    CreateListUser
+    CreateListUser,
+    CatEcommerce
   ],
   templateUrl: './app.html',
   styleUrl: './app.css'
