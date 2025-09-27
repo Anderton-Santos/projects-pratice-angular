@@ -10,6 +10,10 @@ import { SearchUser } from "./pratices/search-user/search-user";
 import { ListBuyTrello } from "./pratices/list-buy-trello/list-buy-trello";
 import { CreateListUser } from "./pratices/pages/create-list-user/create-list-user";
 import { CatEcommerce } from "./pratices/cart/cat-ecommerce/cat-ecommerce";
+import { RxJsComponent } from "./pratices/rx-js-component/rx-js-component";
+import { ListOutInp } from "./pratices/comuComponent/list-out-inp/list-out-inp";
+import { FilhoPai } from "./pratices/componentViews/filho-pai/filho-pai";
+
 
 @Component({
   selector: 'app-root',
@@ -24,8 +28,11 @@ import { CatEcommerce } from "./pratices/cart/cat-ecommerce/cat-ecommerce";
     SearchUser,
     ListBuyTrello,
     CreateListUser,
-    CatEcommerce
-  ],
+    CatEcommerce,
+    RxJsComponent,
+    ListOutInp,
+    FilhoPai
+],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

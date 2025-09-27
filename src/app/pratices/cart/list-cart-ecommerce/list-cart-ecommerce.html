@@ -16,7 +16,7 @@
           <button class="bg-red-400 rounded-full px-2 cursor-pointer" (click)="remAmount(item)">-</button>
         </div>
 
-        <span>Parcial: {{ item.priceProduct * (item.amount) }}</span>
+        <span>Parcial: {{ item.priceProduct * (item.amount) | currency: "BRL"}}</span>
       </ul>
       }
     </div>

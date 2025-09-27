@@ -1,0 +1,28 @@
+<h1>Component filho ViewChild</h1>
+<hr>
+<div class="flex flex-col">
+  EX1
+  <h1 #title>Olá mundo</h1>
+  <button (click)="alterarText()">Alterar</button>
+
+  <hr>
+
+  <!-- ----------------------- -->
+  EX2
+  <p>Sou filho</p>
+
+  <!-- ------------------------- -->
+  EX3
+  <input #nameIn class="border" type="text">
+  <button (click)="exibirNome()">Exibir</button>
+
+  <!-- -------------------------- -->
+  <!-- ViewChildren -->
+  EX4 ViewChildren
+  <ul >
+     @for (item of ['java', 'js', 'ts', 'ola']; track $index) {
+    <li #nameList>{{item}}</li>
+    }
+  </ul>
+
+</div>

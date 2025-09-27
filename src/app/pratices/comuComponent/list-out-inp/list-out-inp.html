@@ -1,0 +1,30 @@
+<h1>Comunicação Entre Componentes</h1>
+
+<app-list-filho [name]="['Angular', 'React', 'Vue']">
+  <footer footer>Esse aqui é meu footer</footer>
+  <p>esse aqui é meu ng Principal</p>
+  <h1 titulo>Titulo de meu ng</h1>
+</app-list-filho>
+
+<app-list-pai (mensagem)="receberMsg($event)"
+              (setNumber)="printNumber($event)"
+              (setBoolean)="togleNumber($event)"
+              (handleInput)="setInput($event)"
+              (handleFood)="setFood($event)"
+              (addNumber)="setNumber($event)"
+              >
+              
+</app-list-pai>
+
+<p>{{msg}}</p>
+<p>{{num}}</p>
+<p>{{val}}</p>
+<p>{{inpu}}</p>
+
+<ul>
+@for (item of food; track $index) {
+  <li>{{item}}</li>
+}  
+</ul>
+
+<p>{{addNum()}}</p>

@@ -1,0 +1,34 @@
+<div class="">
+
+  <h1 class="mt-8">Output</h1>
+
+  <button (click)="enviar()">Enviar</button>
+
+  <button (click)="whatNumber(1)">1</button>
+  <button (click)="whatNumber(2)">2</button>
+  <button (click)="whatNumber(3)">3</button>
+
+  <button (click)="whatBoolean()">Emitir Estado</button>
+
+  <input class="border" type="text" (keyup)="myInput($event.target.value)">
+
+  <div>
+
+    <label>
+      @for (item of foods; track $index) {
+        <input (click)="myFood(item.name)"  type="checkbox" name="food" value="item">
+        {{item.name}}
+        
+      }
+      
+    </label>
+
+  </div>
+
+  <div>
+    <button (click)="handleNumber(1)">+</button>
+    <button (click)="handleNumber(1)">-</button>
+  </div>
+
+
+</div>

@@ -47,7 +47,7 @@ export class CartService {
     this.productCart.update(prev =>
       prev.map(prev =>
         prev.nameProduct === item.nameProduct
-          ? { ...prev, amount: (prev.amount ?? 1) + 1 }
+          ? { ...prev, amount: (prev.amount) + 1 }
           : prev
       )
     );
@@ -55,14 +55,13 @@ export class CartService {
 
   decreaseAmount(item: CartProps) {
     this.productCart.update(prev =>
-      prev
-        .map(prev =>
-          prev.nameProduct === item.nameProduct
-            ? { ...prev, amount: (prev.amount ?? 1) - 1 }
-            : prev
-        )
-        .filter(p => (p.amount ?? 0) > 0)
+      prev.map(prev =>
+        prev.nameProduct === item.nameProduct
+          ? { ...prev, amount: Math.max((prev.amount) - 1, 1) }
+          : prev
+      )
     );
+    console.log(this.productCart());
   }
 
 

@@ -2,11 +2,11 @@
   <h1 class="text-2xl font-black">Search Users - API</h1>
 
   <div>
-    <input class="border bg-white text-black" [(ngModel)]="inputUser" type="text" name="" id="">
+    <input class="border bg-white text-black" [formControl]="inputSearch" type="text" name="" id="">
   </div>
 
   <ul class="flex flex-col gap-4">
-    @for (item of reqUser(); track $index) {
+    @for (item of filteredUsers(); track $index) {
     <li class="flex flex-col">
       <span>{{item.name}}</span>
       <span>{{item.email}}</span>

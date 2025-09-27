@@ -6,17 +6,17 @@ import { CatEcommerce } from './pratices/cart/cat-ecommerce/cat-ecommerce';
 
 export const routes: Routes = [
 
-  {
-    path: "",
-    component: CatEcommerce,
-  },
+  // {
+  //   path: "",
+  //   component: CatEcommerce,
+  // },
 
-  {
-    path: "listuser",
-    component: ListUsers,
-  },
-  {
-    path: "listcar",
-    component: ListCartEcommerce,
-  },
+  // {
+  //   path: "listuser",
+  //   component: ListUsers,
+  // },
+  // {
+  //   path: "listcar",
+  //   component: ListCartEcommerce,
+  // },
 ];
