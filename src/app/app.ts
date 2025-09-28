@@ -14,6 +14,7 @@ import { RxJsComponent } from "./pratices/rx-js-component/rx-js-component";
 import { ListOutInp } from "./pratices/comuComponent/list-out-inp/list-out-inp";
 import { FilhoPai } from "./pratices/componentViews/filho-pai/filho-pai";
 import { Componentapi } from "./pratices/currencyConverter/componentapi/componentapi";
+import { ComponentCep } from "./pratices/searchCep/component-cep/component-cep";
 
 
 @Component({
@@ -33,7 +34,8 @@ import { Componentapi } from "./pratices/currencyConverter/componentapi/componen
     RxJsComponent,
     ListOutInp,
     FilhoPai,
-    Componentapi
+    Componentapi,
+    ComponentCep
 ],
   templateUrl: './app.html',
   styleUrl: './app.css'
