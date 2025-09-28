@@ -13,6 +13,7 @@ import { CatEcommerce } from "./pratices/cart/cat-ecommerce/cat-ecommerce";
 import { RxJsComponent } from "./pratices/rx-js-component/rx-js-component";
 import { ListOutInp } from "./pratices/comuComponent/list-out-inp/list-out-inp";
 import { FilhoPai } from "./pratices/componentViews/filho-pai/filho-pai";
+import { Componentapi } from "./pratices/currencyConverter/componentapi/componentapi";
 
 
 @Component({
@@ -31,7 +32,8 @@ import { FilhoPai } from "./pratices/componentViews/filho-pai/filho-pai";
     CatEcommerce,
     RxJsComponent,
     ListOutInp,
-    FilhoPai
+    FilhoPai,
+    Componentapi
 ],
   templateUrl: './app.html',
   styleUrl: './app.css'
