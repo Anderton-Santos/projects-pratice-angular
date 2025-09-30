@@ -1,7 +1,7 @@
 import { Component, inject, signal } from '@angular/core';
 import { Serviceapi } from '../serviceapi';
 import { FormControl, FormsModule, ReactiveFormsModule } from "@angular/forms";
-import { of, switchMap, tap } from 'rxjs';
+import { debounceTime, of, switchMap, tap } from 'rxjs';
 
 @Component({
   selector: 'app-component-cep',
@@ -14,11 +14,18 @@ import { of, switchMap, tap } from 'rxjs';
   </div>
 
   <section>
+
+  @if(thisVazio()){
     <ul>
-      @for (item of serviceApi.importApi(); track $index) {
-        <li>{{item.cidade}}- {{item.cep}}</li>
-      }
-    </ul>
+          @for (item of serviceApi.importApi(); track $index) {
+            <li>{{item.cidade}}- {{item.cep}}</li>
+            }
+        </ul>
+  }@else {
+    <p>Digite uma cidade</p>
+  }
+
+
   </section>
   `,
   styleUrl: './component-cep.css'
@@ -27,18 +34,33 @@ export class ComponentCep {
   serviceApi = inject(Serviceapi)
 
   inputCity = new FormControl<string | null>(null)
+  thisVazio = signal<boolean>(false)
 
-  getApi(){
+  getApi() {
     this.inputCity.valueChanges.pipe(
+
+      debounceTime(1500),
       tap(prev => {
-        this.serviceApi.inputCep(prev || "")
+        if (prev !== "") {
+          this.thisVazio.set(true)
+        }
+        if (this.thisVazio()) {
+          this.serviceApi.inputCep(prev || "")
+        }
+
+
+
       })
     ).subscribe(prev => console.log(prev))
   }
 
-ngOnInit() {
-  this.serviceApi.getApi()
-  this.getApi();
-}
+  ngOnInit() {
+    this.serviceApi.getApi()
+    this.getApi();
+  }
+
+  constructor() {
+    console.log(this.serviceApi.importApi())
+  }
 
 }

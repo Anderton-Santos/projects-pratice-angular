@@ -1,5 +1,5 @@
 import { Injectable, signal } from '@angular/core';
-import { of, switchMap, tap } from 'rxjs';
+import { debounceTime, delay, of, switchMap, tap } from 'rxjs';
 
 type CepCidade = {
   cidade:string;
@@ -11,7 +11,7 @@ type CepCidade = {
 })
 export class Serviceapi {
 
-  public cepCidade: CepCidade[] = [
+  private cepCidade: CepCidade[] = [
   { cidade: "São Paulo", cep: "01000-000" },
   { cidade: "Rio de Janeiro", cep: "20000-000" },
   { cidade: "Belo Horizonte", cep: "30000-000" },
@@ -30,6 +30,7 @@ importApiCopy = signal<CepCidade[]>([])
 
 getApi(){
   of(this.cepCidade).pipe(
+    delay(2000),
     tap(api => {
       this.importApi.set(api)
       this.importApiCopy.set(api)
