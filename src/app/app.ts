@@ -15,6 +15,7 @@ import { ListOutInp } from "./pratices/comuComponent/list-out-inp/list-out-inp";
 import { FilhoPai } from "./pratices/componentViews/filho-pai/filho-pai";
 import { Componentapi } from "./pratices/currencyConverter/componentapi/componentapi";
 import { ComponentCep } from "./pratices/searchCep/component-cep/component-cep";
+import { DinamicForm } from "./dinamic-form/dinamic-form";
 
 
 @Component({
@@ -35,7 +36,8 @@ import { ComponentCep } from "./pratices/searchCep/component-cep/component-cep";
     ListOutInp,
     FilhoPai,
     Componentapi,
-    ComponentCep
+    ComponentCep,
+    DinamicForm
 ],
   templateUrl: './app.html',
   styleUrl: './app.css'

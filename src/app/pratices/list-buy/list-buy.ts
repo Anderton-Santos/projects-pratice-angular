@@ -17,7 +17,6 @@ export class ListBuy {
     "Higiene", "Limpeza", "Alimentos", "Outros",]
 
 
-
   onSubmit(form: NgForm) {
     if (this.isEditing() !== null) {
       this.list.update(item => {
@@ -30,14 +29,13 @@ export class ListBuy {
         return copy;
       })
 
-      this.isEditing.set(null) // reseta o modo edição
+      this.isEditing.set(null)
     } else {
       this.list.update(prev => [...prev, { ...form.value }])
     }
 
     form.reset()
   }
-
 
   handleDelete(item: number) {
     this.list().splice(item, 1)
@@ -53,18 +51,6 @@ export class ListBuy {
       category: edit.category,
     })
 
-
-
-
-
-
-
-
   }
-
-
-
-
-
 
 }

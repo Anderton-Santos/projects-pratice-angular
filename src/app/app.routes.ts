@@ -11,12 +11,12 @@ export const routes: Routes = [
   //   component: CatEcommerce,
   // },
 
-  // {
-  //   path: "listuser",
-  //   component: ListUsers,
-  // },
-  // {
-  //   path: "listcar",
-  //   component: ListCartEcommerce,
-  // },
+  {
+    path: "listuser",
+    component: ListUsers,
+  },
+  {
+    path: "listcar",
+    component: ListCartEcommerce,
+  },
 ];

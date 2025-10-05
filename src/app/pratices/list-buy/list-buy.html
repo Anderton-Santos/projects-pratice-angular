@@ -28,7 +28,7 @@
     <ul class="p-4">
       @for (item of list(); track $index; let idx = $index) {
       <li class="flex gap-4"><span class="text-white">{{item.name}}</span>
-        <span>{{item.price}}</span>
+        <span>{{item.price | currency}}</span>
         <span>{{item.category}}</span>
 
         <button (click)="handleDelete(idx)" class="cursor-pointer font-bold bg-blue-200 px-1 rounded-full">X</button>
